@@ -9,7 +9,8 @@ class Variant extends Model
 {
     protected $fillable = [
         'name',
-        'additional_price'
+        'additional_price',
+        'order'
     ];
 
     public function additionalVariants(): BelongsToMany

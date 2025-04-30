@@ -289,6 +289,7 @@
       <excludeFolder url="file://$MODULE_DIR$/transporter-app/vendor/spatie/invade" />
       <excludeFolder url="file://$MODULE_DIR$/transporter-app/vendor/spatie/laravel-package-tools" />
       <excludeFolder url="file://$MODULE_DIR$/transporter-app/vendor/symfony/html-sanitizer" />
+      <excludeFolder url="file://$MODULE_DIR$/transporter-app/vendor/afatmustafa/blade-hugeicons" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

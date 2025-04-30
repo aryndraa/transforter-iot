@@ -17,18 +17,22 @@ class TableResource extends Resource
 {
     protected static ?string $model = TableModel::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'hugeicons-table-02';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('number')
-                    ->required(),
-                Forms\Components\TextInput::make('row')
-                    ->required(),
-                Forms\Components\TextInput::make('column')
-                    ->required(),
+                Forms\Components\Section::make()
+                    ->schema([
+                        Forms\Components\TextInput::make('number')
+                            ->required()
+                            ->columnSpan(2),
+                        Forms\Components\TextInput::make('row')
+                            ->required(),
+                        Forms\Components\TextInput::make('column')
+                            ->required(),
+                    ])->columns(2)
             ]);
     }
 

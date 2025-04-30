@@ -10,7 +10,8 @@ class Menu extends Model
     protected $fillable = [
         'name',
         'stock',
-        'price'
+        'price',
+        'photo'
     ];
 
     public function menuAdditional(): BelongsToMany
