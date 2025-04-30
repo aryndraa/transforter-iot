@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('number');
             $table->string('row');
             $table->string('column');
-            $table->text('qr_link')->nullable();
+            $table->text('qr')->nullable();
             $table->enum('status', ['available', 'seated'])->default('available');
             $table->timestamps();
         });
