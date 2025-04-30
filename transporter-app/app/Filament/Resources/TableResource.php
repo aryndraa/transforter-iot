@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\TableResource\Pages;
 use App\Filament\Resources\TableResource\RelationManagers;
 use App\Models\Table as TableModel;
+use Faker\Core\Color;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -47,7 +48,15 @@ class TableResource extends Resource
                 Tables\Columns\TextColumn::make('column')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('status')
-                    ->searchable(),
+                    ->searchable()
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'available' => 'success',
+                        'seated'    => 'primary,'
+                    })
+                    ->extraAttributes([
+                        'class' => 'capitalize'
+                    ]),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
