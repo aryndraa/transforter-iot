@@ -7,12 +7,16 @@ use App\Filament\Resources\TableResource\RelationManagers;
 use App\Models\Table as TableModel;
 use Faker\Core\Color;
 use Filament\Forms;
+use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Section;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\HtmlString;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TableResource extends Resource
 {
@@ -33,8 +37,26 @@ class TableResource extends Resource
                             ->required(),
                         Forms\Components\TextInput::make('column')
                             ->required(),
-                    ])->columns(2)
-            ]);
+                    ])
+                    ->columns(2)
+                    ->columnSpan(2),
+
+                    Forms\Components\Section::make('QR Table')
+                        ->schema([
+                            Placeholder::make('qr_code')
+                                ->label('')
+                                ->content(function ($record) {
+                                    $qr = QrCode::size(200)->generate(url('http://library-app.test/attendance/' . $record->id));
+                                    return new HtmlString($qr);
+                                })
+                                ->extraAttributes([
+                                    'class' => 'flex justify-center '
+                                ])
+                        ])
+
+                        ->columnSpan(1)
+            ])
+            ->columns(3);
     }
 
     public static function table(Table $table): Table
