@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('menu_additional_id')->constrained('menu_additional');
             $table->integer('quantity');
             $table->integer('price');
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

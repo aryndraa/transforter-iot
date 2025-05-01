@@ -39,22 +39,7 @@ class TableResource extends Resource
                             ->required(),
                     ])
                     ->columns(2)
-                    ->columnSpan(2),
-
-                    Forms\Components\Section::make('QR Table')
-                        ->schema([
-                            Placeholder::make('qr_code')
-                                ->label('')
-                                ->content(function ($record) {
-                                    $qr = QrCode::size(200)->generate(url('http://library-app.test/attendance/' . $record->id));
-                                    return new HtmlString($qr);
-                                })
-                                ->extraAttributes([
-                                    'class' => 'flex justify-center '
-                                ])
-                        ])
-
-                        ->columnSpan(1)
+                    ->columnSpan(3),
             ])
             ->columns(3);
     }
