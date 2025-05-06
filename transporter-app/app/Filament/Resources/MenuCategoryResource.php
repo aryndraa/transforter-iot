@@ -28,12 +28,16 @@ class MenuCategoryResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')
-                    ->required(),
+                Forms\Components\Section::make()
+                    ->schema([
+                        TextInput::make('name')
+                            ->required(),
 
-                FileUpload::make('icon')
-                    ->required()
-            ]);
+                        FileUpload::make('icon')
+                            ->required()
+                    ])
+                    ->columnSpan(1)
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table
