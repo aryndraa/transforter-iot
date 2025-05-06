@@ -19,16 +19,20 @@ class MenuResource extends Resource
 
     protected static ?string $navigationIcon = 'mdi-food-outline';
 
+    protected static ?string $navigationGroup = 'Menu';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
-                Forms\Components\TextInput::make('stock')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
+
+                Forms\Components\Select::make('category_id')
+                    ->relationship('category', 'name')
+                    ->preload()
+                    ->searchable(),
+
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()

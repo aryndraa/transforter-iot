@@ -19,6 +19,11 @@ class ViewTable extends ViewRecord
 
     protected static string $resource = TableResource::class;
 
+    public function getTitle(): string
+    {
+        return 'Table Number ' . $this->record->number;
+    }
+
     protected function getHeaderActions(): array
     {
         return [

@@ -22,7 +22,7 @@ class TableResource extends Resource
 {
     protected static ?string $model = TableModel::class;
 
-    protected static ?string $navigationIcon = 'hugeicons-table-02';
+    protected static ?string $navigationIcon = 'gmdi-table-restaurant-r';
 
     public static function form(Form $form): Form
     {
