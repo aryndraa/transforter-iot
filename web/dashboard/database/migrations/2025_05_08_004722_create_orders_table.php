@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('table_id')->constrained('tables');
             $table->foreignId('customer_id')->constrained('customers');
-            $table->integer('price');
+            $table->float('price');
             $table->integer('tax');
             $table->foreignId('voucher_id')->nullable()->constrained('vouchers')->onDelete('cascade');
-            $table->integer('total_price');
+            $table->float('total_price');
             $table->string('payment_status');
             $table->string('status');
             $table->timestamps();

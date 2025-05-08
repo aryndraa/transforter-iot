@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('menu_category_id')->constrained('menu_categories');
-            $table->integer('price');
+            $table->float('price');
             $table->text('description')->nullable();
             $table->text('image')->nullable();
             $table->timestamps();
