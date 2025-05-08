@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('number');
             $table->integer('row');
             $table->integer('column');
-            $table->text('qr');
-            $table->string('status');
+            $table->text('qr')->nullable();
+            $table->string('status')->default('available');
             $table->timestamps();
         });
     }
