@@ -14,7 +14,8 @@ class Menu extends Model
         'menu_category_id',
         'price',
         'description',
-        'image'
+        'image',
+        'status'
     ];
 
     public function menuCategory(): BelongsTo
