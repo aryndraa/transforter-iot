@@ -48,6 +48,11 @@ class MenuCategoryResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
 
+                Tables\Columns\TextColumn::make('menus_count')
+                    ->label('Total Menus')
+                    ->counts('menus'),
+
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -82,6 +87,7 @@ class MenuCategoryResource extends Resource
     {
         return [
             'index' => Pages\ListMenuCategories::route('/'),
+            'create' => Pages\CreateMenuCategory::route('/create'),
             'view' => Pages\ViewMenuCategory::route('/{record}'),
             'edit' => Pages\EditMenuCategory::route('/{record}/edit'),
         ];

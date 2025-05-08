@@ -12,7 +12,7 @@ class MenuCategory extends Model
         'icon',
     ];
 
-    public function mmenus(): HasMany
+    public function menus(): HasMany
     {
         return $this->hasMany(Menu::class);
     }
