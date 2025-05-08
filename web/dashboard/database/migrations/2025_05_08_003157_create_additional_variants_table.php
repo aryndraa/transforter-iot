@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('additional_variants', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('additional_id')->constrained('additional');
             $table->string('name');
             $table->text('image');
             $table->integer('additional_price');
