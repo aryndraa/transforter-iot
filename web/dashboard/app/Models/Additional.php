@@ -22,4 +22,9 @@ class Additional extends Model
     {
         return $this->belongsToMany(Menu::class, 'menu_additional', 'additional_id', 'menu_id');
     }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(OrderItemAdditional::class);
+    }
 }
