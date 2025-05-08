@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Variant extends Model
 {
@@ -11,4 +12,5 @@ class Variant extends Model
         'image',
         'additional_price',
     ];
+
 }
